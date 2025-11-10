@@ -1,0 +1,39 @@
+Anomaly Detection Report
+========================
+
+Summary of Detected Anomalies:
+Isolation Forest detected 454 anomalies.
+One-Class SVM detected 163 anomalies.
+Local Outlier Factor detected 457 anomalies.
+
+Differences in Anomaly Counts Between Models:
+Isolation Forest vs. One-Class SVM: 291
+Isolation Forest vs. Local Outlier Factor: 3
+One-Class SVM vs. Local Outlier Factor: 294
+
+Summary of Findings:
+Based on the anomaly detection models used, the following observations were made:
+- Different models identified varying numbers of anomalies, suggesting that the choice of algorithm and its parameters can significantly impact the results.
+- Visual inspection of the plots (not included in this text report) revealed that some detected anomalies correspond to significant deviations in key metrics like battery voltage and current.
+- There are instances where the models disagree on whether a data point is an anomaly, which could warrant further investigation using domain knowledge.
+
+Summary statistics for all detected anomalies (by at least one model):
+        Time Stamp    Tpy (°C)    Tpx (°C)    Tmz (°C)    Tmx (°C)    Tpz (°C)     Vpy (mV)     Vpx (mV)     Vmz (mV)     Vmx (mV)     Vpz (mV)    Ipy (mA)    Ipx (mA)    Imz (mA)    Imx (mA)    Ipz (mA)    Vbat (V)   Ibatt(mA)   Tbatt (℃)  Vbat_drop_rate   Ibatt_ramp  Tbatt_change_rate  anomaly_score  is_anomaly  is_anomaly_svm  is_anomaly_lof
+count   916.000000  916.000000  916.000000  916.000000  916.000000  916.000000   916.000000   916.000000   916.000000   916.000000   916.000000  916.000000  916.000000  916.000000  916.000000  916.000000  916.000000  916.000000  916.000000      916.000000   916.000000         916.000000     916.000000  916.000000      916.000000      916.000000
+mean   3168.608079   -4.667031   -8.536376   -5.185306   -1.032555   -5.447347  1755.338886  2898.978624  3309.168548  3417.055819  3007.880382   34.325742   54.650524   73.874694   93.282041   41.862434    4.072860  -26.715295    5.486616        0.000579    -1.985218           0.001681       0.010302    0.008734        0.644105        0.002183
+std    1470.546235   16.797123   16.779072   19.650957   15.604700   13.936133  1851.173554  1716.227247  1759.101575  1708.921985  1709.583041   73.535314  111.855933  112.739434  142.336908   77.109837    0.108295  267.286266    2.337494        0.017760    85.024751           0.201452       0.043549    1.000508        0.765355        1.000544
+min       0.000000  -28.330000  -29.550000  -32.320000  -25.330000  -23.670000     0.000000  1256.110000  1243.890000  1265.260000  1275.950000    0.000000    0.000000    0.000000    0.000000    0.000000    3.870000 -653.240000    0.300000       -0.200000 -1060.070000          -0.390000      -0.087661   -1.000000       -1.000000       -1.000000
+25%    1865.000000  -19.340000  -25.000000  -22.000000  -13.350000  -15.120000     1.530000  1296.930000  1310.667500  1317.160000  1321.730000    4.660000    0.000000    4.660000    4.660000    4.660000    3.970000 -222.770000    4.520000        0.000000   -14.640000           0.000000      -0.022078   -1.000000        1.000000       -1.000000
+50%    3525.000000   -4.360000  -10.515000   -4.745000   -3.135000  -10.955000  1343.100000  1545.330000  4618.435000  4609.280000  1925.370000   11.650000    4.660000    9.320000    9.320000    9.320000    4.100000  -20.710000    5.280000        0.000000     0.000000           0.000000       0.002968    1.000000        1.000000        1.000000
+75%    4545.000000    7.657500    1.530000    7.740000    7.960000    1.915000  2832.345000  4690.552500  4753.130000  4740.540000  4673.380000   18.640000   27.970000  107.210000  135.170000   37.290000    4.170000  234.060000    7.960000        0.000000    11.710000           0.000000       0.045903    1.000000        1.000000        1.000000
+max    5385.000000   32.490000   34.480000   34.820000   34.370000   66.330000  5270.150000  5463.980000  5448.720000  5415.140000  5468.560000  410.180000  512.720000  489.420000  503.400000  466.110000    4.200000  895.870000    9.110000        0.150000   726.240000           4.210000       0.097640    1.000000        1.000000        1.000000
+
+Latency Results:
+Data loading and preprocessing: 1.9553 seconds
+Data cleaning and type conversion: 0.0799 seconds
+Feature engineering: 0.0255 seconds
+Isolation Forest training: 0.1886 seconds
+Isolation Forest prediction: 0.0673 seconds
+One-Class SVM training: 0.0502 seconds
+One-Class SVM prediction: 0.0357 seconds
+Local Outlier Factor (LOF): 0.1007 seconds
